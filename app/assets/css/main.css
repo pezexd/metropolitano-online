@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  --font-display: "Merriweather";
+  --font-body: "Baloo 2";
+
+  --color-vino-DEFAULT: #d92612;
+  --color-vino-50: #fff2f1;
+  --color-vino-100: #ffe3e0;
+  --color-vino-200: #ffccc6;
+  --color-vino-300: #ffa99f;
+  --color-vino-400: #ff7667;
+  --color-vino-500: #fc4b37;
+  --color-vino-600: #ea2d18;
+  --color-vino-700: #d92612;
+  --color-vino-800: #a22012;
+  --color-vino-900: #862116;
+  --color-vino-950: #490d06;
+}
+
+:root {
+  --ui-primary: var(--ui-color-primary-800);
+}
