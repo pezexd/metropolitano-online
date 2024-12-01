@@ -21,4 +21,5 @@
 
 :root {
   --ui-primary: var(--ui-color-primary-800);
+  --ui-radius: var(--radius-none);
 }

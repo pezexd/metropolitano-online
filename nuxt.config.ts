@@ -10,6 +10,9 @@ export default defineNuxtConfig({
   site: {
     name: "U.E Colegio Metropolitano Puerto Ordaz",
   },
+  ui: {
+    colorMode: false,
+  },
   seo: {
     meta: {
       description: "Institución educativa privada de excelencia académica.",
