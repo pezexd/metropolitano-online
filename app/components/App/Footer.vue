@@ -16,7 +16,7 @@ const navigation = [
 <template>
   <footer class="bg-white border-t border-gray-100">
     <div
-      class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8"
+      class="mx-auto max-w-7xl px-6 py-8 md:flex md:items-center md:justify-between lg:px-8"
     >
       <div class="flex justify-center gap-x-6 md:order-2">
         <template v-for="item in navigation">

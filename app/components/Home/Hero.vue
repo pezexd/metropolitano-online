@@ -23,10 +23,11 @@
     </div>
 
     <div class="relative isolate overflow-hidden h-128">
-      <img
-        src="/hero-background.jpg"
-        alt=""
+      <NuxtImg
+        src="/fachada.webp"
         class="absolute inset-0 -z-10 size-full object-cover"
+        format="webp"
+        fit="cover"
       />
     </div>
   </div>

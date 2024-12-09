@@ -10,6 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@formkit/tempo": "^0.1.2",
+    "@nuxt/image": "1.8.1",
     "@nuxt/ui": "3.0.0-alpha.9",
     "@nuxtjs/seo": "2.0.2",
     "nuxt": "^3.14.1592",

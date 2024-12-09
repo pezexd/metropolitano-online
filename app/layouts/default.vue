@@ -1,6 +1,6 @@
 <template>
   <Body class="font-body">
-    <div class="flex flex-col">
+    <div class="h-screen flex flex-col">
       <AppHeader />
       <slot />
       <AppFooter class="mt-auto" />

@@ -1,74 +1,93 @@
 <script setup lang="ts">
-const features = [
+import { format } from "@formkit/tempo";
+
+type PostSizes = Record<
+  "small" | "medium" | "large" | "full",
   {
-    name: "Alegría en el Aprendizaje",
-    description:
-      "Fomentamos un ambiente positivo y acogedor donde los estudiantes se sientan motivados y entusiasmados por aprender. A través de actividades lúdicas, descubren el placer de adquirir nuevos conocimientos.",
-    icon: "heroicons:face-smile",
-  },
-  {
-    name: "Disciplina para el Éxito",
-    description:
-      "Inculcamos valores de responsabilidad, respeto y perseverancia. Guiamos a nuestros estudiantes para que desarrollen hábitos de estudio efectivos y una actitud proactiva hacia sus responsabilidades.",
-    icon: "heroicons:puzzle-piece",
-  },
-  {
-    name: "Eficiencia en la Educación",
-    description:
-      "Utilizamos metodologías pedagógicas innovadoras y recursos tecnológicos avanzados para optimizar el proceso de enseñanza-aprendizaje.",
-    icon: "heroicons:arrow-path",
-  },
-];
+    mediaUrl: string;
+    height: number;
+    width: number;
+  }
+>;
+
+interface InstagramBeholdFeed {
+  username: string;
+  biography: string;
+  profilePictureUrl: string;
+  website: string;
+  followersCount: number;
+  followsCount: number;
+  posts: Array<{
+    id: string;
+    timestamp: string;
+    permalink: string;
+    mediaType: string;
+    mediaUrl: string;
+    sizes: PostSizes;
+    caption: string;
+    prunedCaption: string;
+    hashtags: [];
+    mentions: [];
+    colorPalette: any;
+  }>;
+}
+
+const { data } = await useAsyncData(() =>
+  $fetch<InstagramBeholdFeed>("https://feeds.behold.so/zFgp2Jbbk23Ovf1ZUOhq")
+);
 </script>
 
 <template>
   <HomeHero />
-  <div class="bg-white py-14">
+  <HomeValues />
+  <USeparator />
+  <div v-if="data" class="bg-white py-14">
     <UContainer>
       <div class="flex flex-col items-center gap-y-2">
-        <h1 class="text-center font-display font-bold text-4xl">
-          U.E Colegio Metropolitano
-          <p>Puerto Ordaz</p>
-        </h1>
-        <p
-          class="font-medium text-lg text-gray-500 before:content-['“'] after:content-['”']"
-        >
-          Aprendiendo con alegría, disciplina y eficiencia
-        </p>
+        <div class="inline-flex items-center gap-x-2">
+          <NuxtImg
+            :src="data.profilePictureUrl"
+            class="size-10 rounded-lg ring-1 ring-gray-200"
+          />
+          <p class="text-lg font-medium">@{{ data.username }}</p>
+        </div>
       </div>
-      <div class="mt-16">
-        <div class="mx-auto max-w-2xl lg:max-w-none">
-          <div
-            class="grid grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3"
-          >
-            <div
-              v-for="feature in features"
-              :key="feature.name"
-              class="flex flex-col items-start gap-4 lg:flex-col lg:items-center"
+      <div class="mt-12">
+        <div class="grid grid-cols-3 gap-6">
+          <template v-for="post in data.posts.splice(0, 3)">
+            <UCard
+              class="relative"
+              :ui="{ header: 'p-0 sm:p-0', body: 'p-4 sm:p-4' }"
             >
-              <div
-                class="flex size-12 items-center justify-center rounded-full bg-[var(--ui-primary)]"
-              >
-                <UIcon
-                  :name="feature.icon"
-                  class="size-6 text-white"
-                  aria-hidden="true"
+              <template #header>
+                <NuxtImg
+                  :src="post.sizes.medium.mediaUrl"
+                  class="w-full h-48 object-cover rounded-t-lg"
                 />
-              </div>
-              <div class="flex flex-col lg:items-center lg:text-center">
-                <h3 class="text-base font-semibold text-gray-900">
-                  {{ feature.name }}
-                </h3>
-                <p
-                  class="mt-1 text-base text-pretty text-gray-500 lg:text-center"
-                >
-                  {{ feature.description }}
+              </template>
+              <div>
+                <a :href="post.permalink" class="text-lg font-semibold">
+                  {{ format(post.timestamp, "long") }}
+                  <span class="absolute inset-0" />
+                </a>
+                <p class="text-base line-clamp-3">
+                  {{ post.prunedCaption }}
                 </p>
               </div>
-            </div>
-          </div>
+            </UCard>
+          </template>
         </div>
+      </div>
+      <div class="mt-12 flex justify-center">
+        <UButton
+          to="https://www.instagram.com/metropolitanoc/"
+          icon="mdi:instagram"
+          label="Síguenos en Instagram"
+          color="neutral"
+          size="lg"
+        />
       </div>
     </UContainer>
   </div>
+  <!-- <HomeIdentity /> -->
 </template>
