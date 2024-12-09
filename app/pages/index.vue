@@ -2,7 +2,7 @@
 
 <template>
   <HomeHero />
-  <HomeValues />
+  <HomeIdentity />
   <USeparator />
   <HomeInstagramFeed />
   <USeparator />
