@@ -27,7 +27,6 @@ const navigation: NavigationMenuItem[] = [
     ],
   },
   { label: "Incripciones", to: "/aux" },
-  { label: "Contacto", to: "/aux" },
 ];
 </script>
 

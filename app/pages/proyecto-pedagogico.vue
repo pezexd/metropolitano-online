@@ -4,7 +4,7 @@
   <div class="relative flex flex-col">
     <SharedHeading
       title="Proyecto Pedagógico del Plantel"
-      cover-img-src="/instalaciones.jpg"
+      cover-img-src="/proyecto-pedagogico.jpg"
     />
     <div class="py-16">
       <UContainer>

@@ -16,7 +16,7 @@
             <p>desde el nivel de Preescolar hasta Media General</p>
           </div>
           <div class="mt-auto mb-2">
-            <UButton label="Más información" size="md" />
+            <UButton to="#information" label="Más información" size="md" />
           </div>
         </div>
       </UContainer>

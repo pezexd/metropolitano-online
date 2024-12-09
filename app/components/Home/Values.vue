@@ -1,22 +1,22 @@
 <script setup lang="ts">
 const features = [
   {
-    name: "Misión",
+    name: "Nuestra misión",
     description:
       "Contribuir al desarrollo intelectual del estudiante en sus procesos de creación, difusión del conocimiento científico y tecnológico que puedan adquirir en su formación académica. Esto se logrará con la participación de los diferentes actores de la sociedad civil, así como su inserción en el ámbito social.",
     icon: "heroicons:arrows-pointing-in",
   },
   {
-    name: "Visión",
+    name: "Nuestra visión",
     description:
-      "Que el estudiante adquiera durante su formación: principios, valores, ética, responsabilidad, participación, excelencia y compromiso en función con las necesidades de su entorno social, para así participar en aquellas actividades que lo requieran.",
+      "Que el estudiante adquiera durante su formación: principios, valores, ética, responsabilidad, participación, excelencia y compromiso en función con las necesidades de su entorno social, para así participar en aquellas actividades que lo requieran. Deben consolidarse los principios integradores del conocimiento científico y tecnológico que beneficien al estudiante, a la región y al país.",
     icon: "heroicons:eye",
   },
 ];
 </script>
 
 <template>
-  <div class="bg-white py-14">
+  <div id="information" class="bg-white py-14">
     <UContainer>
       <div class="flex flex-col items-center gap-y-2">
         <h1 class="text-center font-display font-bold text-4xl">
