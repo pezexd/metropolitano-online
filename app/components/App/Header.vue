@@ -26,7 +26,7 @@ const navigation: NavigationMenuItem[] = [
       },
     ],
   },
-  { label: "Incripciones", to: "/aux" },
+  { label: "Inscripciones", to: "/aux" },
 ];
 </script>
 
